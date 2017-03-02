@@ -30,6 +30,45 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.apache.beam</groupId>
+            <artifactId>beam-sdks-java-core</artifactId>
+            <version>0.5.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.beam</groupId>
+            <artifactId>beam-runners-core-java</artifactId>
+            <version>0.5.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.beam</groupId>
+            <artifactId>beam-runners-direct-java</artifactId>
+            <version>0.5.0</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.beam</groupId>
+            <artifactId>beam-runners-google-cloud-dataflow-java</artifactId>
+            <version>0.5.0</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.beam</groupId>
+            <artifactId>beam-sdks-java-io-google-cloud-platform</artifactId>
+            <version>0.5.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.google.apis</groupId>
+            <artifactId>google-api-services-bigquery</artifactId>
+            <version>v2-rev295-1.22.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>2.7</version>
@@ -92,9 +131,12 @@
                 </executions>
                 <configuration>
                     <mainClass>com.google.demo.dataflow.Main</mainClass>
-                    <arguments>
-                        <argument>argument1</argument>
-                    </arguments>
+                    <systemProperties>
+                        <systemProperty>
+                            <key>java.util.logging.config.file</key>
+                            <value>logging.properties</value>
+                        </systemProperty>
+                    </systemProperties>
                 </configuration>
             </plugin>
         </plugins>
